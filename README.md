@@ -19,10 +19,26 @@ You could download the source code and customized it based it [License](https://
  - As a part of your service.(E.g. The delivery company connect its own service to the system for save, print, and statistics bills.)
  - As a customized tools.
 
- Currently supported languages(Extendable):
+ Currently supported languages(Extendable)   (*If any translation wrong in it, we hope you could help us fix it):
  - 简体中文
  - ئۇيغۇرچە
  - English
+ - Français
+ - 日本語
+ - 한국어
+ - ไทย
+ - Português
+ - Español
+ - עִברִית
+ - Türk
+ - Deutsche
+ - Русский
+ - Italiano
+ - हिन्दी
+ - سعودي
+ - اردو
+ - O'zbek
+
 
 Currently supported external device:
  - Thermal printer 58mm & Thermal printer 80mm & Dot-matrix printer (for print bill) & Barcode Printer (for print barcode)
@@ -63,7 +79,7 @@ Before you download the source code and use, make sure installed the prerequisit
 ### apply
 
  1. Download the source code and open with Visual Studio.
- 2. For developing more fast, the project setting all **bin** or **obj** files created on the Position: Y:\(Disk Name)  . So you need to download a Ramdisk tools, create a new partition Y:\  . If you don't want to do that it's fine, but you should remove items like: `<BaseIntermediateOutputPath>`, `<OutputPath>`, `<IntermediateOutputPath>` from every **.csproj** files or **Directory.Build.props** files under the project.
+ 2. For developing more fast, the project setting all **bin** or **obj** files created on the Position: Y:\(Disk Name)  . So you need to download a Ramdisk tools, create a new partition Y:\  . If you don't want to do that it's fine, but you should change items like: `<BaseIntermediateOutputPath>`, `<OutputPath>`, `<IntermediateOutputPath>` (for set the application build path) from every **.csproj** files or **Directory.Build.props** files under the project.
  3. Open solution with Visual Studio and restore all project Nuget Packages.
  4. We recommend you run 2 Visual Studio instance when developing.(1.run `OybabServiceConsoleHost` as a server service and debugging, another 1 run `PC`/`Table`/`Phone` Client project and debugging)
  5. Start your journey.

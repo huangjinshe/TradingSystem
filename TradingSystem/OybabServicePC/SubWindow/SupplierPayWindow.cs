@@ -277,7 +277,7 @@ namespace Oybab.ServicePC.SubWindow
             krpdgList.Rows.Clear();
             foreach (var item in currentResult)
             {
-                AddToGrid("", item.ParentId.ToString(), item.Price, GetBalanceType(item.BalanceId), item.Remark, item.AddTime, item);
+                AddToGrid("", item.PayId.ToString(), item.Price, GetBalanceType(item.BalanceId), item.Remark, item.AddTime, item);
             }
         }
 
@@ -299,7 +299,7 @@ namespace Oybab.ServicePC.SubWindow
 
             try
             {
-                AddTimeStr = DateTime.ParseExact(AddTime.ToString(), "yyyyMMddHHmmss", null).ToString("yyyy-MM-dd HH:mm");
+                AddTimeStr = DateTime.ParseExact(AddTime.ToString(), "yyyyMMddHHmmss", System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm");
 
                 if (null != model)
                     OperateNameStr = GetOperateName(model);
@@ -311,7 +311,7 @@ namespace Oybab.ServicePC.SubWindow
 
 
             if (editMark == "*")
-                krpdgList.Rows.Insert(0, editMark, Id, Price.ToString(), BalanceName, Remark, AddTimeStr);
+                krpdgList.Rows.Insert(0, editMark, Id, OperateNameStr, GetOperateSymbal(model, Price).ToString(), BalanceName, Remark, AddTimeStr);
             else
             {
                 krpdgList.Rows.Add(editMark, Id, OperateNameStr, GetOperateSymbal(model, Price).ToString(), BalanceName, Remark, AddTimeStr);
@@ -603,7 +603,7 @@ namespace Oybab.ServicePC.SubWindow
                                     krpdgList.SelectedRows[0].Cells["krpcmSupplierPayId"].Value = newSupplierPay.SupplierPayId;
                                     krpdgList.SelectedRows[0].Cells["krpcmEdit"].Value = "";
 
-                                    krpdgList.SelectedRows[0].Cells["krpcmAddTime"].Value = DateTime.ParseExact(newSupplierPay.AddTime.ToString(), "yyyyMMddHHmmss", null).ToString("yyyy-MM-dd HH:mm");
+                                    krpdgList.SelectedRows[0].Cells["krpcmAddTime"].Value = DateTime.ParseExact(newSupplierPay.AddTime.ToString(), "yyyyMMddHHmmss", System.Globalization.CultureInfo.InvariantCulture).ToString("yyyy-MM-dd HH:mm");
                                     this.Supplier = newSupplier;
                                     this.ReturnValue = newSupplier;
                                     this.resultList.Insert(0, newSupplierPay);
